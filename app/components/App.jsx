@@ -1,10 +1,11 @@
 import styles from './_App.scss';
 
 import React from 'react';
-import AppActions from '../../actions/AppActions';
-import ItemsStore from '../../stores/ItemsStore';
-import Body from '../Body/Body';
-import Footer from '../Footer/Footer';
+import BudgetList from './BudgetList';
+import AddBudgetForm from './AddBudgetForm';
+
+import AppActions from '../actions/AppActions';
+import ItemsStore from '../stores/ItemsStore';
 
 function getAppState() {
   return {
@@ -13,7 +14,6 @@ function getAppState() {
 }
 
 export default class App extends React.Component {
-
   state = getAppState()
 
   componentDidMount() {
@@ -32,8 +32,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <Body items={this.state.items} />
-        <Footer />
+        <BudgetList items={this.state.items} />
+        <AddBudgetForm />
       </div>
     );
   }

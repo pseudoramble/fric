@@ -7,6 +7,22 @@ import {
 } from '../constants/AppConstants';
 
 export default {
+  addBudget(name, maxAmount) {
+    AppDispatcher.dispatch({
+      actionType : 'ADD-BUDGET',
+      name : name,
+      maxAmount : maxAmount
+    });
+  },
+
+  updateBudget(name, amount) {
+    AppDispatcher.dispatch({
+      actionType : 'UPDATE-BUDGET',
+      name : name,
+      amount : amount
+    });
+  },
+
   getItems() {
     WebAPI.getItems()
     .then((items) => {

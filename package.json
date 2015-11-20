@@ -1,8 +1,8 @@
 {
-  "name": "react-seed",
+  "name": "fric",
   "version": "0.0.16",
-  "description": "Seed project for React apps using ES6 & webpack.",
-  "repository": "https://github.com/badsyntax/react-seed",
+  "description": "A cash-counting tool to help you ",
+  "repository": "https://github.com/pseudoramble/fric",
   "license": "MIT",
   "config": {
     "buildDir": "./build",
@@ -25,10 +25,10 @@
     "webpack": "webpack --colors --progress --config ./webpack/config"
   },
   "dependencies": {
-    "classnames": "^2.1.3",
-    "flux": "^2.0.3",
+    "classnames": ">=2.1.3",
+    "flux": ">=2.0.3",
     "normalize.css": "^3.0.3",
-    "react": "^0.13.3"
+    "react": ">=0.13.3"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -56,7 +56,7 @@
     "karma-source-map-support": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.5.1",
-    "lodash": "^3.10.0",
+    "lodash": ">=3.10.0",
     "mocha": "^2.2.5",
     "mocha-loader": "^0.7.1",
     "node-libs-browser": "^0.5.2",
