@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './_BudgetList.scss';
+
 import AppActions from '../actions/AppActions';
 
 export default class BudgetList extends React.Component {
@@ -9,7 +11,7 @@ export default class BudgetList extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className={styles.budgetList}>
         {
            this.props.items.map(({name, transactions, maxAmount}) => {
              const remainingAmount = _.reduce(transactions, (remaining, deductBy) => {
@@ -17,18 +19,14 @@ export default class BudgetList extends React.Component {
              }, maxAmount);
 
              return (
-               <section key={'budget-item-' + name}>
+               <section className={styles.item} key={'budget-item-' + name}>
                  <div>
-                   <span>{name}</span> - <span>(Max = ${maxAmount})</span> <span>(Remaining = ${remainingAmount})</span>
+                   <span className={styles.name}>{name}</span>
+                   <div className={styles.totals}>${remainingAmount} Left, ${maxAmount} Max</div>
                  </div>
                  <div>
-                   <span>
-                     <label>Add Transaction Amount:</label>
-                     <input type="number" ref={name + "-amount"} min={0} max={remainingAmount} />
-                   </span>
-                   <span>
-                     <button onClick={this.onClick.bind(this, name)}>Update Remaining!</button>
-                   </span>
+                   <input type="number" ref={name + "-amount"} min={0} max={remainingAmount} />
+                   <button onClick={this.onClick.bind(this, name)}>Bye Cash!</button>
                  </div>
                </section>
              );

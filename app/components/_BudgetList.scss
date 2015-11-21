@@ -1,0 +1,25 @@
+.budgetList {
+    height: 50%;
+    overflow: auto;
+    margin-bottom: 15px;
+
+    .item {
+        border-bottom: 1px dashed black;
+        margin: 0 0 5px 0;
+        padding-bottom: 5px;
+
+        input {
+            width: 20%;
+        }
+        button {
+            width: 75%;
+        }
+
+        .totals {
+            font-size: 0.8em;
+        }
+        .name {
+            font-size: 1.02em;
+        }
+    }
+}
