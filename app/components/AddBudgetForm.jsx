@@ -1,5 +1,6 @@
 import React from 'react';
 import AppActions from '../actions/AppActions';
+import styles from './_AddBudgetForm.scss';
 
 export default class AddBudgetForm extends React.Component {
   onClick() {
@@ -8,17 +9,22 @@ export default class AddBudgetForm extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className={styles.budgetForm}>
+        <span>
+          <label htmlFor="item-name">Name:</label>
+        </span>
         <div>
-          <label>Name:</label>
-          <input type="text" ref="name" />
+          <input type="text" ref="name" id="item-name" />
         </div>
+        <span>
+          <label htmlFor="item-max-budget">Max Budget:</label>
+        </span>
         <div>
-          <label>Max Budget:</label>
-          <input type="number" ref="maxAmount" />
+          <input type="number" ref="maxAmount" id="item-max-budget" />
         </div>
+
         <div>
-          <button onClick={this.onClick.bind(this)}>Add Now!</button>
+          <button onClick={this.onClick.bind(this)}>Create new Budget</button>
         </div>
       </section>
     );
