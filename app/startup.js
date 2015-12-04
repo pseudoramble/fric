@@ -14,7 +14,7 @@ export default () => {
     });
   };
 
-  if (isResetDay(new Date("2015-12-01"))) {
+  if (isResetDay()) {
     doTheReset();
   }
 }
