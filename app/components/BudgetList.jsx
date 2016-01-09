@@ -8,6 +8,7 @@ import AppActions from '../actions/AppActions';
 export default class BudgetList extends React.Component {
   onClick(name) {
     AppActions.updateBudget(name, this.refs[name + "-amount"].value);
+    this.refs[name + "-amount"].value = '';
   }
 
   render() {
