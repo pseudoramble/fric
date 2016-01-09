@@ -1,8 +1,9 @@
 import _ from 'lodash';
+import { EventEmitter } from 'events';
+import accounting from 'accounting';
 
 import BaseStore from './BaseStore';
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import { EventEmitter } from 'events';
 
 import {
   ITEMS_UPDATED,
@@ -24,11 +25,15 @@ class ItemsStore extends EventEmitter {
     localStorage.setItem(name, JSON.stringify(data));
   }
 
+  _toMonies(amount) {
+    return accounting.toFixed(parseFloat(amount), 2);
+  }
+
   addBudget(name, maxAmount) {
     this._addBudgetItem(name);
 
     if (!localStorage.getItem(name)) {
-      this._saveBudget(name, { name : name, maxAmount : parseFloat(maxAmount), transactions : [] });
+      this._saveBudget(name, { name : name, maxAmount : this._toMonies(maxAmount), transactions : [] });
     }
 
     this.emitChange();
@@ -38,7 +43,7 @@ class ItemsStore extends EventEmitter {
     const item = this._fetchBudget(name);
 
     if (item) {
-      item.transactions.push(parseFloat(amount));
+      item.transactions.push(this._toMonies(amount));
       this._saveBudget(name, item);
     }
 
