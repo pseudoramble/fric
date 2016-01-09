@@ -35,7 +35,7 @@ const saveLastLogin = (date) => {
 };
 
 export default () => {
-  const today = new Date(2016, 1, 10),
+  const today = new Date(),
         lastLogin = getLastLogin();
 
   if (isResetDay(today, lastLogin)) {
